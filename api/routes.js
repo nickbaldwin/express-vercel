@@ -4,7 +4,7 @@ const router = express.Router();
 /**
  * GET product list.
  *
- * @return product list | empty.
+ * @return list | empty.
  */
 router.get("/", async (req, res) => {
   try {
