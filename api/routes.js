@@ -6,12 +6,25 @@ const router = express.Router();
  *
  * @return list | empty.
  */
-router.get("/", async (req, res) => {
+router.get("/secrets", async (req, res) => {
   try {
-    res.json({
-      status: 200,
-      message: "Get data has successfully",
-    });
+    res.json([
+      {
+        "id": 1,
+        "name": "secret one",
+        "value": "1111"
+      },
+      {
+        "id": 2,
+        "name": "secret two",
+        "value": "2222"
+      },
+      {
+        "id": 3,
+        "name": "secret three",
+        "value": "3333"
+      }
+    ]);
   } catch (error) {
     console.error(error);
     return res.status(500).send("Server error");
