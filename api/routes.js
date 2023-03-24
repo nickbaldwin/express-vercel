@@ -1,34 +1,39 @@
 const express = require("express");
 const router = express.Router();
 
-/**
- * GET product list.
- *
- * @return list | empty.
- */
+const db = require("./db");
+
+router.post('/newsecret', (req, res) => {
+
+  // todo - fail properly
+  if (!req.body || !req.body.name || !req.body.value) {
+    return res.send(JSON.stringify({
+      error: "must supply name and value"
+    }));
+  }
+
+  const secret = {
+    name: req.body.name,
+    value: req.body.value
+  }
+  let newSecret = db.addSecret(secret);
+  const r = {
+    response: "accepted",
+    message: `successfully accepted secret - name: ${newSecret.name} value: ${newSecret.value} - with id: ${newSecret.id} `,
+    newSecret
+  }
+  return res.send(JSON.stringify(r));
+});
+
 router.get("/secrets", async (req, res) => {
   try {
-    res.json([
-      {
-        "id": 1,
-        "name": "secret one",
-        "value": "1111"
-      },
-      {
-        "id": 2,
-        "name": "secret two",
-        "value": "2222"
-      },
-      {
-        "id": 3,
-        "name": "secret three",
-        "value": "3333"
-      }
-    ]);
+    res.json(db.getSecrets());
   } catch (error) {
     console.error(error);
     return res.status(500).send("Server error");
   }
 });
+
+
 
 module.exports = router;
