@@ -1,7 +1,7 @@
 {
-  "name": "express-vercel",
+  "name": "keymask-frontend-demo-toy-api",
   "version": "1.0.0",
-  "description": "Deploy express js to vercel.",
+  "description": "KeyMask frontend demo - toy api",
   "main": "index.js",
   "engines": {
     "node": "14.x"
@@ -10,16 +10,16 @@
     "start": "node index.js"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hatuanem199801/express-vercel.git"
+    "type": "",
+    "url": ""
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "",
   "bugs": {
-    "url": "https://github.com/hatuanem199801/express-vercel/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/hatuanem199801/express-vercel#readme",
+  "homepage": "",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1"
